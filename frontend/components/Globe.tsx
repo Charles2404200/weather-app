@@ -8,7 +8,6 @@ import styles from './Globe.module.css';
 interface GlobeProps {
   onCitySelect: (city: City) => void;
   selectedCity: City | null;
-  onRotateToCity?: (city: City) => void;
 }
 
 interface GlobeHandle {
@@ -16,7 +15,7 @@ interface GlobeHandle {
 }
 
 const Globe = forwardRef<GlobeHandle, GlobeProps>(
-  ({ onCitySelect, selectedCity, onRotateToCity }: GlobeProps, ref) => {
+  ({ onCitySelect, selectedCity }: GlobeProps, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [hoveredCity, setHoveredCity] = useState<City | null>(null);
     const earthRef = useRef<THREE.Mesh | null>(null);
