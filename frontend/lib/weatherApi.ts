@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api/v1';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://weather-app-seven-gamma-92.vercel.app/api/v1';
 
 export async function getCurrentWeather(latitude: number, longitude: number) {
   try {
