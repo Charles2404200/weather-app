@@ -21,12 +21,12 @@ COPY . .
 # Build frontend
 RUN cd frontend && npm run build
 
-# Default ports
-ENV PORT=3000
+# Default ports (Railway typically sets PORT=8080)
+ENV PORT=8080
 ENV BACKEND_PORT=8000
 
-# Expose frontend port (Railway will map $PORT)
-EXPOSE 3000
+# Expose frontend port (match default PORT)
+EXPOSE 8080
 
 # Entry script runs both backend and frontend
 COPY docker-entrypoint.sh ./docker-entrypoint.sh

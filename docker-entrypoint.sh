@@ -10,4 +10,4 @@ python3 -m uvicorn app.main:app --host 0.0.0.0 --port "${BACKEND_PORT}" &
 
 echo "[entrypoint] Starting frontend on port ${PORT}..."
 cd /app/frontend
-exec npm start -- -p "${PORT}"
+exec npm start -- -p "${PORT}" -- --hostname 0.0.0.0
