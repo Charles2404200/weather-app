@@ -1,7 +1,6 @@
 'use client';
 
 import { WeatherData } from '@/types/weather';
-import { getWeatherIcon } from '@/lib/weatherApi';
 
 interface WeatherCardProps {
   data: WeatherData;
