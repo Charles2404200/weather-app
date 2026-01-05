@@ -253,7 +253,6 @@ const Globe = forwardRef<GlobeHandle, GlobeProps>(
 
     // Connect to WebSocket for real-time city streaming
     const connectWebSocket = () => {
-      const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
       const wsUrl = apiBaseUrl.replace(/^https?/, (match) => (match === 'https' ? 'wss' : 'ws')) + '/geocoding/ws/cities';
       
