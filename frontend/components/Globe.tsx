@@ -81,7 +81,7 @@ const Globe = forwardRef<GlobeHandle, GlobeProps>(
 
       // Load Earth textures
       const loader = new THREE.TextureLoader();
-      const earth = new THREE.Mesh(
+      const earth = new THREE.Mesh<THREE.SphereGeometry, THREE.Material>(
         new THREE.SphereGeometry(1, 64, 64),
         new THREE.MeshPhongMaterial()
       );
