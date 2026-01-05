@@ -7,9 +7,6 @@ PORT="${PORT:-8000}"
 case "$MODE" in
 	backend)
 		echo "[start.sh] Mode: backend"
-		echo "[start.sh] Installing backend dependencies..."
-		pip install --no-cache-dir -r backend/requirements.txt
-
 		echo "[start.sh] Starting FastAPI backend on port ${PORT}..."
 		cd backend
 		exec python -m uvicorn app.main:app --host 0.0.0.0 --port "${PORT}"
