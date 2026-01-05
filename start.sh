@@ -9,7 +9,16 @@ case "$MODE" in
 		echo "[start.sh] Mode: backend"
 		echo "[start.sh] Starting FastAPI backend on port ${PORT}..."
 		cd backend
-		exec python -m uvicorn app.main:app --host 0.0.0.0 --port "${PORT}"
+		# Detect available python binary (python or python3)
+		if command -v python >/dev/null 2>&1; then
+			PY_BIN=python
+		elif command -v python3 >/dev/null 2>&1; then
+			PY_BIN=python3
+		else
+			echo "[start.sh] ERROR: Neither 'python' nor 'python3' found in PATH." >&2
+			exit 1
+		fi
+		exec "$PY_BIN" -m uvicorn app.main:app --host 0.0.0.0 --port "${PORT}"
 		;;
 
 	frontend)
