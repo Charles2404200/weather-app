@@ -14,8 +14,9 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Expose port
+# Expose default port (Railway will map its own $PORT)
 EXPOSE 3000
 
 # Run the application
-CMD ["npm", "start"]
+# Use $PORT from environment if provided (Railway), default to 3000
+CMD ["sh", "-c", "echo Using PORT=${PORT:-3000}; npm start -- -p ${PORT:-3000}"]
